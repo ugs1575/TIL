@@ -93,6 +93,8 @@ git config --global user.email johndoe@example.com
    ```
 * HEAD는 merge한 브랜치로 옮겨간다.
 * 머지 후 같은 곳을 고쳐주어서 충돌이 나게되면 수동으로 수정후 커밋하면된다. 
+* 브랜치가 쪼개져 나갈때 공통의 조상 -> base
+* 3 way merge 는 2 way merge 와 비교해서 자동화해서 병합해 줄 수 있다.
 
 > 참고
 > * 인프런강의 - 팀 개발을 위한 Git, GitHub 입문 기술를 듣고 작성한 글입니다.
