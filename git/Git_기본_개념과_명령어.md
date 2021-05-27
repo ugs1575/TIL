@@ -31,28 +31,34 @@ git clone https://github.com/아이디/이름/git .
 8. 풀(pull)하기    
 ``` git pull origin 브랜치명  ```
 
-9. git 전역 사용자 설정
+9. 변경된 파일이나 add한 파일 확인
+``` git status  ```
+
+11. 수정된 부분 표시
+``` git diff  ```
+
+12. git 전역 사용자 설정
 ``` 
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com 
 ```
 
-10. 풀 리퀘스트(pull request) : 원격저장소에 머지 요청하기
+13. 풀 리퀘스트(pull request) : 원격저장소에 머지 요청하기
 * 어떤 변경을 했는지 제목과 내용에 작성 
 * 오픈소스에 PR보낼때 기여 안내문서 참고
 * 팀프로젝트라면 최대한 직접 머지하는건 피하고 모든 머지를 풀 리퀘스틑 통해하기 
 
-11. amend
+14. amend
 * 방금 만든 커밋에 추가하기
 * 소스트리 amend 방법 
     1. 커밋 클릭하고 오른쪽 상단 모서리에 커밋옵션 클릭
     2. 마지막 커밋 수정 클릭
     3. 강제 푸시하기 
 
-12. stash
+15. stash
 * 커밋 전에 스테이징에 올려놨는데 다른 브랜치로 가야할때 변경사항을 잠시 저장할 수 있다.
 
-13. reset
+16. reset
 * 옛날 커밋으로 브랜치를 되돌리고 싶을 때 
 * 소스트리 reset 방법
     1. 커밋 이력 에서 오른쪽 버튼 클릭
@@ -62,11 +68,11 @@ git config --global user.email johndoe@example.com
             * mixed - 변경 있었던걸 남기고 싶을 때 씀, uncommitted changes 로 남는다.
             * hard는 반대로 남지 않는다. 
     
-14. revert
+17. revert
 * 특정 커밋을 되돌리고 새로운 커밋을 생성한다.
 * reset은 다른 사람들의 히스토리에 영향을 준다. revert는 영향을 주지 않고 변경사항을 되돌릴 수 있다. 
 
-15. cherry-pick
+18. cherry-pick
 * 특정 커밋 하나만 떼서 다른 브랜치에 붙이고 싶을 때 
 * 소스트리 cherry-pick 방법
     1. 커밋을 붙이고 싶은 브랜치로 이동
