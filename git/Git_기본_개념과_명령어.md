@@ -102,6 +102,22 @@ git config --global user.email johndoe@example.com
 * 브랜치가 쪼개져 나갈때 공통의 조상 -> base
 * 3 way merge 는 2 way merge 와 비교해서 자동화해서 병합해 줄 수 있다.
 
+4. 원격 저장소 branch 확인
+- 저장소를 clone 하거나 pull 하면 원격 저장소의 branch도 같이 받아지지 않는다.
+```
+git branch -r
+```
+
+5. 원격과 로컬 저장소 branch 확인
+```
+git branch -a 
+```
+
+6. 원격 저장소 branch 가져오기
+-t 옵션과 원격 저장소의 branch 이름을 입력하면 로컬의 동일한 이름의 branch를 생성하면서 해당 branch로 checkout을 한다.
+```
+git checkout -b [생성할 branch 이름] [원격 저장소의 branch 이름]
+```
 > 참고
 > * 인프런강의 - 팀 개발을 위한 Git, GitHub 입문 기술를 듣고 작성한 글입니다.
 > * [강의 링크] [link]
