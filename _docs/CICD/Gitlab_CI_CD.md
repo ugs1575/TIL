@@ -1,3 +1,8 @@
+---
+title: gitlab cicd with docker
+category: Media
+order: 4
+---
 ## gitlab cicd with docker
 
 * runner -> registry 등록 gitlab은 registry랑만 소통한다
