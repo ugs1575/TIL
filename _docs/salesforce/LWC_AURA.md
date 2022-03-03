@@ -1,7 +1,7 @@
 ---
 title: LWC AURA
 category: salesforce
-order: 1
+order: 3
 ---
 # LWC AURA
 
