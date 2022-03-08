@@ -47,3 +47,62 @@ Lead[] leads = searchList[1];
 
 - Developer Console > Help > Preferences > Enable Query Plan 체크
 - Query Editor에서 Execute 오른쪽에 Query Plan 버튼이 생김 > 버튼 클릭
+
+### DML 쿼리 결과 확인
+
+- 쿼리결과를 확인 하고 싶을 때는 아래와 같이 Database method를 사용하면 된다. 아래 코드와 같이 insert 메서드에서 두번째 파라미터로 false를 주면 결과를 알 수 있다.
+
+```java
+Opportunity opp1 = new Opportunity(
+		Name = 'New Opportunity ApexHours 0213',
+		CloseDate = Date.today(),
+		Amount = 1000,
+		StageName = 'Prospecting',
+		AccountId = '0013i000004HHTrAAO'
+);
+
+//필수 값인 StageName 이 빠져서 쿼리가 실패 할 것이다.
+Opportunity opp2 = new Opportunity(
+		Name = 'New Opportunity ApexHours 223',
+		CloseDate = Date.today(),
+		Amount = 5000,
+		AccountId = '0013i000004HHTrAAO'
+);
+
+List<Opportunity> lstOpp = new List<Opportunity> { opp1, opp2 };
+Database.saveResult[] sr = Database.insert(listOpp, false);
+
+for (Database.SaveResult var : sr) {
+		System.debug('Result - ' + var.isSuccess());
+}
+```
+
+- output
+
+```
+Result - true
+Result - false
+```
+
+### Transaction 처리
+
+```java
+Account acc = new Account(
+		Name = 'Test Account 0213'
+);
+insert acc;
+
+Account accQuery = [SELECT Id FROM Account WHERE Name = 'Test Account 0213'];
+
+System.Savepoint spt = Database.setSavepoint();
+
+try {
+		Contact con = new Contact(
+				LastName = 'Contact'
+		);
+		insert con;
+} catch (Exception ex) {
+		Database.rollback(spt);
+}
+
+```
